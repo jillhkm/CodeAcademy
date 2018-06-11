@@ -1,0 +1,47 @@
+/* Given a HashMap of books and their completion status,
+will return a list of completed book and an list of 
+unfinished books */
+
+import java.util.HashMap;
+
+public class Library {
+  public Library(){
+    
+  }
+  public static void getFinishedBooks(HashMap<String, Boolean> library) {
+    if (library.size() < 1) {
+      System.out.println("Library is empty, please enter a library with books.");
+    } else {
+      for(String key : library.keySet()) {
+        if(library.get(key) == true) {
+          System.out.println(key);
+        }
+      }
+    }
+    
+  }
+  
+  public static void getUnfinishedBooks(HashMap<String, Boolean> library) {
+    if (library.size() < 1 ) {
+      System.out.println("Library is empty, please enter a library with books.");      
+    } else {
+      for(String key : library.keySet()) {
+        if (library.get(key) == false) {
+          System.out.println(key);
+        }
+      }
+    }
+  }
+  
+  public static void main(String[] args) {
+    HashMap<String, Boolean> myBooks = new HashMap();
+    	myBooks.put("Road Down The Funnel", true);
+    	myBooks.put("Rat: A Biology", false);
+    	myBooks.put("TimeIn", true);
+    	myBooks.put("3D Food Printing", false);
+    
+    Library myLibrary = new Library();
+    myLibrary.getFinishedBooks(myBooks);
+    myLibrary.getUnfinishedBooks(myBooks);
+      }
+}
